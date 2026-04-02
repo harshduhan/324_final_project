@@ -58,8 +58,6 @@ pdf_data/
   <source PDFs>
 
 preprocess.py
-validate_dataset.py
-p1.ipynb
 p1_minilm.ipynb
 p1_mpnet.ipynb
 ```
@@ -70,22 +68,3 @@ p1_mpnet.ipynb
 - Duplicate filenames or alternate copies should be reviewed before experiments
 - Consistent preprocessing is important for reliable comparisons
 
-## Validation
-The repository includes `validate_dataset.py` to help check:
-- whether expected files exist
-- whether filenames follow the expected convention
-- whether files are empty or unusually short
-- basic dataset statistics
-
-Example usage:
-```bash
-python validate_dataset.py --data-dir data
-```
-
-## Future Improvements
-Possible extensions to the dataset include:
-- adding manifesto files from additional years
-- adding more political parties
-- storing metadata such as source, page count, and extraction date
-- adding automated cleaning and normalization steps
-- versioning the dataset separately from experiment notebooks
