@@ -1,5 +1,4 @@
 import fitz  # PyMuPDF
-import os
 import re
 from pathlib import Path
 from tqdm import tqdm

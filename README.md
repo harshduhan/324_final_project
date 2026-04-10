@@ -1,25 +1,26 @@
 # Party manifesto embeddings (BJP / INC)
 
-## Setup
+Sentence embeddings and analysis on Indian party manifesto text (notebooks: MPNet and MiniLM).
 
-```bash
-pip install pandas numpy tqdm matplotlib seaborn sentence-transformers scikit-learn scipy umap-learn PyMuPDF
-```
+## Reproduce
 
-(`requirements.txt` only pins pandas; use the line above for notebooks and scripts.)
+1. **Python 3.10+**
+2. Install dependencies (from repo root):
 
-## Data
+   ```bash
+   pip install -e .
+   ```
 
-- **Raw PDFs:** `pdf_data/{BJP,INC}_{2009,2014,2019,2024}.pdf`
-- **Extract text:** `python preprocess.py` → writes `data/*.txt`
-- **Masked text (party-name tokens removed):** `python mask_data.py` → writes `masked_pdf_data/*.txt`
+3. **Data:** put PDFs in `pdf_data/` as `BJP_{year}.pdf` / `INC_{year}.pdf` (e.g. 2009, 2014, 2019, 2024).
+4. **Build text files:**
 
-Notebooks use **`data/`** for unmasked runs and **`masked_pdf_data/`** for masked UMAP/drift cells. More detail: `DATASET.md`.
+   ```bash
+   python preprocess.py          # → data/*.txt
+   python mask_data.py           # optional → masked_pdf_data/*.txt
+   ```
 
-## Run
+5. **Run analysis:** open `p1_mpnet.ipynb` or `p1_minilm.ipynb` and run all cells. Use `data/` for unmasked runs; use `masked_pdf_data/` where the notebook expects masked text.
 
-1. Ensure `data/` (and optionally `masked_pdf_data/`) contain the `.txt` files you need.
-2. Open **`p1_mpnet.ipynb`** or **`p1_minilm.ipynb`**.
-3. **Run all cells** from the top (model load → encoding → analysis). The MPNet notebook selects `all-mpnet-base-v2`; MiniLM uses `all-MiniLM-L6-v2`.
+Figures are written alongside the repo (e.g. `1MPNet_*.png`, `1MiniLM_*.png`).
 
-Figures save next to the repo (e.g. `1MPNet_*` / `1MiniLM_*` PNGs).
+More on the dataset layout: `DATASET.md`.

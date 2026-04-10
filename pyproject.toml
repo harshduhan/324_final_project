@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "party-manifesto-embeddings"
+version = "0.1.0"
+description = "Party manifesto embeddings (BJP / INC)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas>=2.0.0",
+    "pymupdf",
+    "scikit-learn",
+    "scipy",
+    "seaborn",
+    "sentence-transformers",
+    "tqdm",
+    "umap-learn",
+]
+
+[tool.setuptools]
+packages = []
